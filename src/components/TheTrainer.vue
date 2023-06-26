@@ -1,5 +1,5 @@
 <script setup>
-import { computed, reactive } from 'vue';
+import { computed, reactive, ref } from 'vue';
 import TheResult from './TheResult.vue';
 import {
   createCompletion,
@@ -15,6 +15,7 @@ import {
 } from '../constants';
 import { Message } from '../models';
 import TheChart from '../components/TheChart.vue';
+import VueHighcharts from 'vue3-highcharts';
 
 const data = reactive({
   error: '',
@@ -39,7 +40,6 @@ const remember = (key, value) => localStorage.setItem(key, value);
 const rememberKey = () => localStorage.setItem('key', window.btoa(data.key));
 
 const run = async () => {
-  // data.generatedMessages = [];
   data.loads = true;
   const client = createClient(data.key);
   try {
@@ -63,6 +63,35 @@ const run = async () => {
     data.error = err?.response?.data?.error?.message || err.message;
     data.loads = false;
   }
+};
+
+// test graph data
+const seriesData = ref([25, 39, 30, 15]);
+const categories = ref(['Jun', 'Jul', 'Aug', 'Sept']);
+
+const chartOptions = computed(() => ({
+  chart: {
+    type: 'line',
+  },
+  title: {
+    text: 'Number of project stars',
+  },
+  xAxis: {
+    categories: categories.value,
+  },
+  yAxis: {
+    title: {
+      text: 'Number of stars',
+    },
+  },
+  series: [{
+    name: 'New project stars',
+    data: seriesData.value,
+  }],
+}));
+
+const onRender = () => {
+  console.log('Chart rendered');
 };
 </script>
 
@@ -116,6 +145,20 @@ const run = async () => {
                 variant="outlined"
                 @input="rememberKey"
               />
+            </div>
+          </div>
+          <div class="my-4">
+            <div class="text-subtitle-2 mb-2">
+              Result Graph
+            </div>
+            <div>
+              <VueHighcharts
+                type="chart"
+                :options="chartOptions"
+                :redrawOnUpdate="true"
+                :oneToOneUpdate="false"
+                :animateOnUpdate="true"
+                @rendered="onRender"/>
             </div>
           </div>
         </v-card-item>
