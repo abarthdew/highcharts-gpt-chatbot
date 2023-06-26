@@ -106,7 +106,7 @@ const onRender = () => {
   </v-snackbar>
   <v-row class="justify-center">
   <TheChart />
-    <v-col cols="12" sm="10" md="6">
+    <v-col cols="12">
       <v-card
         color="blue-grey-lighten-5"
         height="100%"
@@ -164,7 +164,7 @@ const onRender = () => {
         </v-card-item>
       </v-card>
     </v-col>
-    <v-col cols="12" sm="10" md="6">
+    <v-col cols="12">
       <v-card
         color="blue-grey-lighten-5"
         height="100%"
