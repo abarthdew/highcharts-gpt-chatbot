@@ -14,6 +14,7 @@ import {
   DEFAULT_USER_MESSAGE,
 } from '../constants';
 import { Message } from '../models';
+import TheChart from '../components/TheChart.vue';
 
 const data = reactive({
   error: '',
@@ -75,6 +76,7 @@ const run = async () => {
     {{ data.error }}
   </v-snackbar>
   <v-row class="justify-center">
+  <TheChart />
     <v-col cols="12" sm="10" md="6">
       <v-card
         color="blue-grey-lighten-5"
