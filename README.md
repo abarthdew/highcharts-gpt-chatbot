@@ -2,10 +2,37 @@
 
 ## how to make it
 - src/services/openai.js 를 통해 통신, 리스트 출력
+```javascript
+const run = async () => {
+  data.loads = true;
+  const client = createClient(data.key);
+  try {
+    const userMessages = data.userMessage.split('\n').filter((userMessage) => !!userMessage);
+    for await (const userMessage of userMessages) {
+      data.generatedMessages.push(new Message(ROLE_USER, userMessage));
+      data.userMessage = '';
+      const result = await createCompletion(client)({
+        messages: generatedMessages.value,
+      });
+      const { choices } = result.data;
+      const [choice] = choices;
+      const { message } = choice;
+      data.generatedMessages.push(new Message(ROLE_ASSISTANT, message.content));
+      console.log(message.content)
+      document.getElementById('input-9').focus();
+      await new Promise((resolve) => setTimeout(resolve, data.delaySeconds * 1000));
+      data.loads = false;
+    }
+  } catch (err) {
+    data.error = err?.response?.data?.error?.message || err.message;
+    data.loads = false;
+  }
+};
+```
 
 ## insatll
 - highchart
-> refer[1](https://smithalan92.github.io/vue3-highcharts/)
+> refer [1](https://smithalan92.github.io/vue3-highcharts/)
 , [2](https://github.com/smithalan92/vue3-highcharts/blob/master/demo/src/main.js)
 , [3](https://www.npmjs.com/package/@adrianbrs/vue3-highcharts)
 ```shell
@@ -14,7 +41,7 @@ $ npm install -S highcharts # when you get error - refer the git issue #1
 ```
 
 - markdown render
-> refer[1](https://morioh.com/p/2d2ee277892c)
+> refer [1](https://morioh.com/p/2d2ee277892c)
 , [2](https://janguillermo.github.io/vue3-markdown-it/?ref=morioh.com&utm_source=morioh.com)
 ```shell
 $ npm install vue3-markdown-it
@@ -22,14 +49,14 @@ $ npm install vue3-markdown-it
 
 ### References
 - vue3 global settings
-> refer[1](https://kyounghwan01.github.io/blog/Vue/vue3/global-state/#composition-api%E1%84%85%E1%85%A9-%E1%84%80%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A9%E1%84%87%E1%85%A5%E1%86%AF-%E1%84%87%E1%85%A7%E1%86%AB%E1%84%89%E1%85%AE-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5)
+> refer [1](https://kyounghwan01.github.io/blog/Vue/vue3/global-state/#composition-api%E1%84%85%E1%85%A9-%E1%84%80%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A9%E1%84%87%E1%85%A5%E1%86%AF-%E1%84%87%E1%85%A7%E1%86%AB%E1%84%89%E1%85%AE-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5)
 , [2](https://kkh0977.tistory.com/1954)
 - global component/dynamic component
-> refer[1](https://velog.io/@byunghun-jake/Vue-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%A0%84%EC%97%AD%EB%93%B1%EB%A1%9D)
+> refer [1](https://velog.io/@byunghun-jake/Vue-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%A0%84%EC%97%AD%EB%93%B1%EB%A1%9D)
 , [2](https://empty-castle.tistory.com/3)
 , [3](https://mine-it-record.tistory.com/350)
 - gpt
-> refer[1](https://www.visionboy.me/815)
+> refer [1](https://www.visionboy.me/815)
 , [2](https://velog.io/@g_c0916/%ED%86%A0%EC%9D%B4-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-chat-GPT-API)
 , [3](https://re-hwi.tistory.com/121)
 , [4](https://velog.io/@bk87/GPT%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-QnA-%EC%B1%97%EB%B4%87-%EB%A7%8C%EB%93%A4%EA%B8%B0)
