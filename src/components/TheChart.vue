@@ -1,4 +1,5 @@
 <template>
+  <div>
   <VueHighcharts
     type="chart"
     :options="chartOptions"
@@ -6,6 +7,15 @@
     :oneToOneUpdate="false"
     :animateOnUpdate="true"
     @rendered="onRender" />
+  <VueMarkdownIt :source='chartOptions3' style="height: 260px; overflow-y: scroll; margin-top: 15px;" />
+  <VueHighcharts
+    type="chart"
+    :options="chartOptions2"
+    :redrawOnUpdate="true"
+    :oneToOneUpdate="false"
+    :animateOnUpdate="true"
+    @rendered="onRender" />
+  </div>
 </template>
 
 <script>
@@ -14,6 +24,7 @@ import { computed } from 'vue';
 export default {
   name: 'TheChart',
   setup() {
+    const chartOptions2 = computed(() => test);
     const chartOptions = computed(() => ({
       chart: {
         type: 'line'
@@ -76,12 +87,63 @@ export default {
         data: [77, 72, 80],
       }],
     }));
+    const chartOptions3 = "```javascript \n" + `{
+  "chartOptions": {
+    "chart": {
+      "type": "line"
+    },
+    "title": {
+      "text": "Monthly Sales"
+    },
+    "xAxis": {
+      "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+    },
+    "yAxis": {
+      "title": {
+        "text": "Sales ($) "
+      }
+    },
+    "series": [{
+      "name": "Sales",
+      "data": [1500, 2000, 1800, 2500, 2200, 2700]
+    }]
+  }
+}`
     const onRender = () => {
       // nothing
     };
+    const test = "```JSON\n" + `{
+  "chartOptions": {
+    "chart": {
+      "type": "line"
+    },
+    "title": {
+      "text": "Monthly Sales"
+    },
+    "xAxis": {
+      "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+    },
+    "yAxis": {
+      "title": {
+        "text": "Sales ($) "
+      }
+    },
+    "series": [{
+      "name": "Sales",
+      "data": [1500, 2000, 1800, 2500, 2200, 2700]
+    }]
+  }
+}` + "\n```"
+    let regex = new RegExp(/['|"|\s]chartOptions*[^```]+/, "g");
+    let result = [...test.matchAll(regex)];
+    let result2 = result[0].toString();
+    console.log(result2.slice(0, -1))
     return {
+      chartOptions3,
+      chartOptions2,
       chartOptions,
       onRender,
+      test,
     };
   },
 };

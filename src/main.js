@@ -13,6 +13,7 @@ import '@mdi/font/css/materialdesignicons.css';
 // highchart & markdown global use
 import VueHighcharts from 'vue3-highcharts';
 import VueMarkdownIt from 'vue3-markdown-it';
+import 'highlight.js/styles/monokai.css';
 
 const pinia = createPinia();
 const vuetify = createVuetify({
