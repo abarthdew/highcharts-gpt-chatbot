@@ -63,6 +63,11 @@ const run = async () => {
     data.loads = false;
   }
 };
+
+// test
+const test = (item) => {
+  item.append('<p>ddd</p>')
+}
 </script>
 
 <template>
@@ -100,6 +105,7 @@ const run = async () => {
               />
             </div>
           </div>
+          <v-btn @click="test(this)">test</v-btn>
           <div class="my-4">
             <div class="text-subtitle-2 mb-2">
               API Key

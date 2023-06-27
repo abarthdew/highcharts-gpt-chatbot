@@ -9,14 +9,10 @@
 </template>
 
 <script>
-import VueHighcharts from 'vue3-highcharts';
 import { computed } from 'vue';
 
 export default {
   name: 'TheChart',
-  components: {
-    VueHighcharts,
-  },
   setup() {
     const chartOptions = computed(() => ({
       chart: {

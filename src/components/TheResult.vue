@@ -1,6 +1,5 @@
 <script setup>
 import { capitalize } from '../utils';
-import VueMarkdownIt from 'vue3-markdown-it';
 
 defineProps({
   messages: {

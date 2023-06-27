@@ -10,6 +10,10 @@ import './assets/main.css';
 import 'vuetify/styles';
 import '@mdi/font/css/materialdesignicons.css';
 
+// highchart & markdown global use
+import VueHighcharts from 'vue3-highcharts';
+import VueMarkdownIt from 'vue3-markdown-it';
+
 const pinia = createPinia();
 const vuetify = createVuetify({
   components,
@@ -21,4 +25,6 @@ createApp(App)
   .use(pinia)
   .use(vuetify)
   .use(VueGtag, { property: { id: 'G-D07ELLDNWH' } })
+  .component('VueHighcharts', VueHighcharts)
+  .component('VueMarkdownIt', VueMarkdownIt)
   .mount('#app');
