@@ -5,12 +5,12 @@ import { RouterLink } from 'vue-router';
 <template>
   <v-app-bar density="compact" color="blue-grey-lighten-5" elevation="2">
     <v-app-bar-title
-      class="text-indigo-darken-4 font-weight-medium"
+      class="text-deep-purple-darken-4 font-weight-medium"
     >
       <b>HIGHCHART GPT CHATBOT - beta</b>
     </v-app-bar-title>
     <span class="mx-4">
-      <RouterLink :to="{ name: 'home' }" active-class="font-weight-medium text-indigo-darken-4">
+      <RouterLink :to="{ name: 'home' }" active-class="font-weight-medium text-deep-purple-darken-3">
         <v-icon size="x-large">
           mdi-home
         </v-icon>

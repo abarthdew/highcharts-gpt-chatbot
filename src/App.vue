@@ -6,7 +6,7 @@ import TheHeader from './components/TheHeader.vue';
 <template>
   <v-app>
     <TheHeader />
-    <v-main class="">
+    <v-main class="bg-deep-purple-darken-3">
       <v-container class="py-12">
         <RouterView />
       </v-container>

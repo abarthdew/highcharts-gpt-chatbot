@@ -44,7 +44,7 @@
   width: 11px;
   height: 11px;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: indigo;
 }
 
 @-webkit-keyframes loader1{
@@ -72,7 +72,7 @@
   left: -webkit-calc(50% - 43px);
   left: calc(50% - 2.5px);
 
-  background-color: #fff;
+  background-color: indigo;
   border-radius: 50px;
 }
 
@@ -80,8 +80,8 @@
   content: "";
   position: absolute;
   top: -38px;
-  border-top: 3px solid #fff;
-  border-right: 3px solid #fff;
+  border-top: 3px solid indigo;
+  border-right: 3px solid indigo;
   border-radius: 0 50px 0px  0;
   width: 40px;
   height: 40px;
@@ -97,8 +97,8 @@
   position: absolute;
   top: 2px;
   right: 2px;
-  border-bottom: 3px solid #fff;
-  border-left: 3px solid #fff;
+  border-bottom: 3px solid indigo;
+  border-left: 3px solid indigo;
   border-radius: 0 0px 0px  50px;
   width: 40px;
   height: 40px;
@@ -139,7 +139,7 @@
 
 .loader3:after{
   content: "LOADING ...";
-  color: #fff;
+  color: indigo;
   font-family:  Lato,"Helvetica Neue" ;
   font-weight: 200;
   font-size: 16px;
@@ -156,7 +156,7 @@
 .loader3:before{
   content: "";
   position: absolute;
-  background-color: #fff;
+  background-color: indigo;
   top: -5px;
   left: 0px;
   height: 30px;
@@ -205,7 +205,7 @@
 .loader4:before{
   content: "";
   position: absolute;
-  background-color: #fff;
+  background-color: indigo;
   top: 0px;
   left: 0px;
   height: 20px;
@@ -220,7 +220,7 @@
 
 .loader4:after{
   content: "LOADING ...";
-  color: #fff;
+  color: indigo;
   font-family:  Lato,"Helvetica Neue" ;
   font-weight: 200;
   font-size: 16px;
@@ -264,7 +264,7 @@
 
 .loader5:after{
   content: "LOADING ...";
-  color: #fff;
+  color: indigo;
   font-family:  Lato,"Helvetica Neue" ;
   font-weight: 200;
   font-size: 16px;
@@ -279,7 +279,7 @@
 .loader5:before{
   content: "";
   position: absolute;
-  background-color: #fff;
+  background-color: indigo;
   top: 0px;
   height: 20px;
   width: 0px;
@@ -321,7 +321,7 @@
   left: calc(50% - 6px);
   
   border-radius: 12px;
-  background-color: #fff;
+  background-color: indigo;
   -webkit-transform-origin:  50% 50%;
       transform-origin:  50% 50% ;
   -webkit-animation: loader6 1s ease-in-out infinite;
@@ -383,7 +383,7 @@
 .loader7:before{
   content: "";
   position: absolute;
-  background-color: #fff;
+  background-color: indigo;
   height: 10px;
   width: 10px;
   border-radius: 10px;
@@ -394,7 +394,7 @@
 .loader7:after{
   content: "";
   position: absolute;
-  background-color: #fff;
+  background-color: indigo;
   top: 0px;
   left: 0px;
   height: 40px;
@@ -454,7 +454,7 @@
   background-color: rgba(255, 255, 255, .2);
   border-width: 40px;
   border-style: double;
-  border-color:transparent  #fff;
+  border-color:transparent  indigo;
 
   -webkit-box-sizing:border-box;
   -moz-box-sizing:border-box;
@@ -501,7 +501,7 @@
   top: 46%;
   left: 46%;
   border-radius: 12px;
-  background-color: #fff;
+  background-color: indigo;
 }
 
 

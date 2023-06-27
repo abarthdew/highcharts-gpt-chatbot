@@ -27,8 +27,6 @@ const data = reactive({
   chartOptions: {},
 });
 
-const loads = false;
-
 const initMessages = computed(() => [
   new Message(ROLE_SYSTEM, data.systemMessage),
 ]);
@@ -52,7 +50,7 @@ const run = async () => {
     const [choice] = choices;
     const { message } = choice;
     data.generatedMessages.push(new Message(ROLE_ASSISTANT, message.content));
-    // console.log('content', message.content)
+    console.log('content: ', message.content)
     await new Promise((resolve) => setTimeout(resolve, data.delaySeconds * 1000));
     data.loads = false;
   } catch (err) {
