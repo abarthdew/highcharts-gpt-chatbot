@@ -8,13 +8,6 @@
     :animateOnUpdate="true"
     @rendered="onRender" />
   <VueMarkdownIt :source='chartOptions3' style="height: 260px; overflow-y: scroll; margin-top: 15px;" />
-  <VueHighcharts
-    type="chart"
-    :options="chartOptions2"
-    :redrawOnUpdate="true"
-    :oneToOneUpdate="false"
-    :animateOnUpdate="true"
-    @rendered="onRender" />
   </div>
 </template>
 
@@ -24,7 +17,6 @@ import { computed } from 'vue';
 export default {
   name: 'TheChart',
   setup() {
-    const chartOptions2 = computed(() => test);
     const chartOptions = computed(() => ({
       chart: {
         type: 'line'
@@ -140,7 +132,6 @@ export default {
     console.log(result2.slice(0, -1))
     return {
       chartOptions3,
-      chartOptions2,
       chartOptions,
       onRender,
       test,
