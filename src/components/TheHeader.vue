@@ -7,11 +7,13 @@ import { RouterLink } from 'vue-router';
     <v-app-bar-title
       class="text-indigo-darken-4 font-weight-medium"
     >
-      HIGHCHART GPT CHATBOT - beta
+      <b>HIGHCHART GPT CHATBOT - beta</b>
     </v-app-bar-title>
     <span class="mx-4">
       <RouterLink :to="{ name: 'home' }" active-class="font-weight-medium text-indigo-darken-4">
-        Home
+        <v-icon size="x-large">
+          mdi-home
+        </v-icon>
       </RouterLink>
     </span>
     <span class="mx-4">

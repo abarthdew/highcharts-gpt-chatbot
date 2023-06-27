@@ -1,5 +1,5 @@
 {
-  "name": "gpt-prompt-trainer",
+  "name": "highchart-gpt-chatbot",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
   "dependencies": {
     "@mdi/font": "^7.1.96",
     "axios": "^1.3.4",
+    "highcharts": "^11.1.0",
     "pinia": "^2.0.32",
     "vue": "^3.2.47",
     "vue-gtag-next": "^1.14.0",

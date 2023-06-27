@@ -7,7 +7,7 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
   plugins: [vue()],
   base: process.env.NODE_ENV === 'production'
-    ? '/gpt-prompt-trainer/'
+    ? '/highchart-gpt-chatbot/'
     : '/',
   resolve: {
     alias: {

@@ -7,50 +7,86 @@
     :animateOnUpdate="true"
     @rendered="onRender"/>
 </template>
+
 <script>
 import VueHighcharts from 'vue3-highcharts';
 import { computed, ref } from 'vue';
 
-  export default {
-    name: 'TheChart',
-
-    components: {
-      VueHighcharts,
-    },
-
-    setup() {
-      const seriesData = ref([25, 39, 30, 15]);
-      const categories = ref(['Jun', 'Jul', 'Aug', 'Sept']);
-
-      const chartOptions = computed(() => ({
-        chart: {
-          type: 'line',
+export default {
+  name: 'TheChart',
+  components: {
+    VueHighcharts,
+  },
+  setup() {
+    const chartOptions = computed(() => ({
+      chart: {
+        type: 'line'
+      },
+      title: {
+        text: 'Example Chart Title',
+        align: 'center',
+      },
+      subtitle: {
+        text: 'Sub Title - refer this basic information',
+        align: 'center'
+      },
+      legend: {
+        floating: false,
+        align: 'right',
+        symbolRadius: 0,
+        symbolWidth: 15,
+        itemDistance: 15,
+        itemStyle: {
+          color:'#444',
+          fontSize: '14px',
+          fontWeight:'400'
         },
+      },
+      xAxis: {
+        categories: ['xAxis1', 'xAxis2', 'xAxis3']
+      },
+      yAxis: {
+        allowDecimals: true,
         title: {
-          text: 'Number of project stars',
+          text: 'yAxis - allowDecimals'
         },
-        xAxis: {
-          categories: categories.value,
-        },
-        yAxis: {
-          title: {
-            text: 'Number of stars',
-          },
-        },
-        series: [{
-          name: 'New project stars',
-          data: seriesData.value,
-        }],
-      }));
-
-      const onRender = () => {
-        console.log('Chart rendered');
-      };
-
-      return {
-        chartOptions,
-        onRender,
-      };
-    },
-  };
+        labels: {
+          formatter() {
+            return 'label: ' + this.value;
+          }
+        }
+      },
+      credits: {
+        enabled: false
+      },
+      tooltip: {
+        formatter: function () {
+          return '<b>tootip: ' + this.x + '</b><br/>' +
+            this.series.name + ': ' + this.y + '<br/>';
+        }
+      },
+      ployOptions: {},
+      series: [{
+        name: 'legend1',
+        data: [148, 133, 124],
+      }, {
+        name: 'legend2',
+        data: [102, 98, 65],
+      }, {
+        name: 'legend3',
+        data: [113, 122, 95],
+      }, {
+        name: 'legend4',
+        data: [77, 72, 80],
+      }],
+    }));
+    const onRender = () => {
+      // nothing
+    };
+    return {
+      chartOptions,
+      onRender,
+    };
+  },
+};
 </script>
