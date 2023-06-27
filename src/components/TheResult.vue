@@ -1,5 +1,6 @@
 <script setup>
 import { capitalize } from '../utils';
+import VueMarkdownIt from 'vue3-markdown-it';
 
 defineProps({
   messages: {
@@ -19,7 +20,7 @@ defineProps({
       {{ capitalize(message.role) }}
     </v-chip>
     <v-sheet color="blue-grey-lighten-4" rounded="xl" class="px-4 py-2">
-      {{ message.content }}
+      <VueMarkdownIt :source='message.content' />
     </v-sheet>
   </div>
 </template>

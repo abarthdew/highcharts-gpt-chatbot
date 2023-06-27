@@ -23,11 +23,11 @@ export default {
         type: 'line'
       },
       title: {
-        text: 'Example Chart Title',
+        text: 'Example Line Chart Title',
         align: 'center',
       },
       subtitle: {
-        text: 'Sub Title - refer this basic information',
+        text: 'Refer this basic released information',
         align: 'center'
       },
       legend: {

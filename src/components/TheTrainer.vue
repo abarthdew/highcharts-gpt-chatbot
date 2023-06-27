@@ -15,7 +15,6 @@ import {
 } from '../constants';
 import { Message } from '../models';
 import TheChart from '../components/TheChart.vue';
-import VueHighcharts from 'vue3-highcharts';
 
 const data = reactive({
   error: '',
