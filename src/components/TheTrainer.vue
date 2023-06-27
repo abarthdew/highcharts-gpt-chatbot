@@ -1,5 +1,5 @@
 <script setup>
-import { computed, reactive, ref } from 'vue';
+import { computed, reactive } from 'vue';
 import TheResult from './TheResult.vue';
 import {
   createCompletion,
@@ -24,6 +24,7 @@ const data = reactive({
   delaySeconds: Number(localStorage.getItem('delaySeconds')) || DEFAULT_DELAY_SECONDS,
   generatedMessages: [],
   loads: false,
+  chartOptions: {},
 });
 
 const loads = false;
@@ -42,32 +43,23 @@ const run = async () => {
   data.loads = true;
   const client = createClient(data.key);
   try {
-    const userMessages = data.userMessage.split('\n').filter((userMessage) => !!userMessage);
-    for await (const userMessage of userMessages) {
-      data.generatedMessages.push(new Message(ROLE_USER, userMessage));
-      data.userMessage = '';
-      const result = await createCompletion(client)({
-        messages: generatedMessages.value,
-      });
-      const { choices } = result.data;
-      const [choice] = choices;
-      const { message } = choice;
-      data.generatedMessages.push(new Message(ROLE_ASSISTANT, message.content));
-      console.log(message.content)
-      document.getElementById('input-9').focus();
-      await new Promise((resolve) => setTimeout(resolve, data.delaySeconds * 1000));
-      data.loads = false;
-    }
+    data.generatedMessages.push(new Message(ROLE_USER, data.userMessage));
+    data.userMessage = '';
+    const result = await createCompletion(client)({
+      messages: generatedMessages.value,
+    });
+    const { choices } = result.data;
+    const [choice] = choices;
+    const { message } = choice;
+    data.generatedMessages.push(new Message(ROLE_ASSISTANT, message.content));
+    // console.log('content', message.content)
+    await new Promise((resolve) => setTimeout(resolve, data.delaySeconds * 1000));
+    data.loads = false;
   } catch (err) {
     data.error = err?.response?.data?.error?.message || err.message;
     data.loads = false;
   }
 };
-
-// test
-const test = (item) => {
-  item.append('<p>ddd</p>')
-}
 </script>
 
 <template>
@@ -105,7 +97,6 @@ const test = (item) => {
               />
             </div>
           </div>
-          <v-btn @click="test(this)">test</v-btn>
           <div class="my-4">
             <div class="text-subtitle-2 mb-2">
               API Key
@@ -143,7 +134,7 @@ const test = (item) => {
             Chat
           </div>
           <div class="my-4">
-            <TheResult :messages="generatedMessages" />
+            <TheResult :messages="generatedMessages" :chart-options="data.chartOptions" />
           </div>
         </v-card-item>
         <v-card-item class="pl-8 pr-8 pb-2">

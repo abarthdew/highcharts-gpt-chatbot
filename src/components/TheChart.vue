@@ -5,7 +5,7 @@
     :redrawOnUpdate="true"
     :oneToOneUpdate="false"
     :animateOnUpdate="true"
-    @rendered="onRender"/>
+    @rendered="onRender" />
 </template>
 
 <script>

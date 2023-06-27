@@ -6,6 +6,10 @@ defineProps({
     type: Array,
     default: () => [],
   },
+  chartOptions: {
+    type: Object,
+    default: () => {},
+  },
 });
 </script>
 
@@ -20,6 +24,13 @@ defineProps({
     </v-chip>
     <v-sheet color="blue-grey-lighten-4" rounded="xl" class="px-4 py-2">
       <VueMarkdownIt :source='message.content' />
+      <VueHighcharts v-if="message.role === 'assistant' && chartOptions.chart"
+        class="ma-4"
+        type="chart"
+        :options="chartOptions"
+        :redrawOnUpdate="true"
+        :oneToOneUpdate="false"
+        :animateOnUpdate="true" />
     </v-sheet>
   </div>
 </template>
