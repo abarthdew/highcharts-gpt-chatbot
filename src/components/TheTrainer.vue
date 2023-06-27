@@ -147,7 +147,22 @@ const run = async () => {
           </div>
           <div class="my-4">
             <div class="text-subtitle-2 mb-2">
-              User Messages
+              <b>User Messages</b> or Here's some samples...
+              <v-btn color="primary" size="x-small" rounded="xl" class="mr-2">
+                Column
+              </v-btn>
+              <v-btn color="secondary" size="x-small" rounded="xl" class="mr-2">
+                Stack
+              </v-btn>
+              <v-btn color="info" size="x-small" rounded="xl" class="mr-2">
+                Full Stack
+              </v-btn>
+              <v-btn color="success" size="x-small" rounded="xl" class="mr-2">
+                Overlap
+              </v-btn>
+              <v-btn color="warning" size="x-small" rounded="xl" class="mr-2">
+                Treemap
+              </v-btn>
             </div>
             <div>
               <v-textarea
