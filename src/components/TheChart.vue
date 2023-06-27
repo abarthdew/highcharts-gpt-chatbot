@@ -8,7 +8,15 @@
     :animateOnUpdate="true"
     @rendered="onRender" />
   <VueMarkdownIt :source='chartOptions3' style="height: 260px; overflow-y: scroll; margin-top: 15px;" />
-  </div>
+  
+  <VueHighcharts
+    type="chart"
+    :options="chartOptions4.chartOptions"
+    :redrawOnUpdate="true"
+    :oneToOneUpdate="false"
+    :animateOnUpdate="true"
+    @rendered="onRender" />
+    </div>
 </template>
 
 <script>
@@ -126,12 +134,23 @@ export default {
     }]
   }
 }` + "\n```"
-    let regex = new RegExp(/['|"|\s]chartOptions*[^```]+/, "g");
-    let result = [...test.matchAll(regex)];
-    let result2 = result[0].toString();
-    console.log(result2.slice(0, -1))
+    let regex = new RegExp(/(```(.|\n)*```)/, "g");
+    let word = test.match(regex);
+    // let result2 = result[0].toString();
+    // console.log(result2.slice(0, -1))
+    const userMessages = word[0].split('\n').filter((item) => !!item);
+    let result = [];
+    for (let i=0; i<userMessages.length - 1; i++) {
+      if (i!==0) {
+        result += userMessages[i]
+      }
+    }
+    const chartOptions4 = JSON.parse(result)
+    console.log(result)
     return {
+      chartOptions4,
       chartOptions3,
+      result,
       chartOptions,
       onRender,
       test,

@@ -31,7 +31,7 @@ const run = async () => {
 ```
 
 ## insatll
-- highchart
+- highcharts
 > refer [1](https://smithalan92.github.io/vue3-highcharts/)
 , [2](https://github.com/smithalan92/vue3-highcharts/blob/master/demo/src/main.js)
 , [3](https://www.npmjs.com/package/@adrianbrs/vue3-highcharts)
