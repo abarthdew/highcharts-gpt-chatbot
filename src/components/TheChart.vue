@@ -10,7 +10,7 @@
 
 <script>
 import VueHighcharts from 'vue3-highcharts';
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 
 export default {
   name: 'TheChart',
