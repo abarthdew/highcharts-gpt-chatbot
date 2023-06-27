@@ -51,7 +51,7 @@ const run = async () => {
     const { message } = choice;
     data.generatedMessages.push(new Message(ROLE_ASSISTANT, message.content));
     console.log('content: ', message.content)
-    await new Promise((resolve) => setTimeout(resolve, data.delaySeconds * 1000));
+    await new Promise((resolve) => setTimeout(resolve, data.delaySeconds * 100));
     data.loads = false;
   } catch (err) {
     data.error = err?.response?.data?.error?.message || err.message;
@@ -64,6 +64,7 @@ const run = async () => {
   <v-snackbar
     v-if="data.error"
     color="indigo-lighten-1"
+    :timeout="1500"
     model-value
     @update:modelValue="data.error = ''"
   >
