@@ -17,7 +17,7 @@ import { RouterLink } from 'vue-router';
       </RouterLink>
     </span>
     <span class="mx-4 ml-1">
-      <a href="https://github.com/abarthdew/highchart-gpt-chatbot" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/abarthdew/highcharts-gpt-chatbot" target="_blank" rel="noopener noreferrer">
         <v-icon size="x-large">
           mdi-github
         </v-icon>
