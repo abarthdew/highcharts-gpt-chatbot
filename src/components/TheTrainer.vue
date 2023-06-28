@@ -204,6 +204,7 @@ const run = async (auto) => {
                 no-resize
                 rows="4"
                 variant="outlined"
+                placeholder="Write somthing you want to ask about Highcharts..."
                 @input="remember('userMessage', data.userMessage)"
                 ref="msg"
               />
