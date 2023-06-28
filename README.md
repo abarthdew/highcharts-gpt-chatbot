@@ -43,6 +43,12 @@ $ npm install -S highcharts # when you get error - refer the git issue #1
 $ npm install vue3-markdown-it
 ```
 
+- vuex
+> refer [1](https://stackblitz.com/edit/vue3-vuex-mapgetters-namespaced-module?file=src%2Fmain.ts)
+```shell
+$ npm install vuex
+```
+
 ## run
 ```shell
 $ npm install

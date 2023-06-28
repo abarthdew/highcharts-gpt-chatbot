@@ -7,7 +7,9 @@
     :oneToOneUpdate="false"
     :animateOnUpdate="true"
     @rendered="onRender" />
-  <VueMarkdownIt :source='chartOptions3' style="height: 260px; overflow-y: scroll; margin-top: 15px;" />
+  <VueMarkdownIt :source='chartOptions3' 
+    style="height: 260px; overflow-y: scroll; margin-top: 15px;"
+  />
   
   <VueHighcharts
     type="chart"
@@ -20,73 +22,13 @@
 </template>
 
 <script>
-import { computed } from 'vue';
+import { useStore } from "vuex";
 
 export default {
   name: 'TheChart',
   setup() {
-    const chartOptions = computed(() => ({
-      chart: {
-        type: 'line'
-      },
-      title: {
-        text: 'Example Line Chart Title',
-        align: 'center',
-      },
-      subtitle: {
-        text: 'Refer this basic released information',
-        align: 'center'
-      },
-      legend: {
-        floating: false,
-        align: 'right',
-        symbolRadius: 0,
-        symbolWidth: 15,
-        itemDistance: 15,
-        itemStyle: {
-          color:'#444',
-          fontSize: '14px',
-          fontWeight:'400'
-        },
-      },
-      xAxis: {
-        categories: ['xAxis1', 'xAxis2', 'xAxis3']
-      },
-      yAxis: {
-        allowDecimals: true,
-        title: {
-          text: 'yAxis - allowDecimals'
-        },
-        labels: {
-          formatter() {
-            return 'label: ' + this.value;
-          }
-        }
-      },
-      credits: {
-        enabled: false
-      },
-      tooltip: {
-        formatter: function () {
-          return '<b>tootip: ' + this.x + '</b><br/>' +
-            this.series.name + ': ' + this.y + '<br/>';
-        }
-      },
-      ployOptions: {},
-      series: [{
-        name: 'legend1',
-        data: [148, 133, 124],
-      }, {
-        name: 'legend2',
-        data: [102, 98, 65],
-      }, {
-        name: 'legend3',
-        data: [113, 122, 95],
-      }, {
-        name: 'legend4',
-        data: [77, 72, 80],
-      }],
-    }));
+    const store = useStore();
+    const chartOptions = store.state.chartStore.chartOptions;
     const chartOptions3 = "```javascript \n" + `{
   "chartOptions": {
     "chart": {
@@ -112,7 +54,7 @@ export default {
     const onRender = () => {
       // nothing
     };
-    const test = "```javascript\n" + `{
+    const test = "```json\n" + `{
   "chartOptions": {
     "chart": {
       "type": "line"

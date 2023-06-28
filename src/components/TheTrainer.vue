@@ -37,7 +37,21 @@ const remember = (key, value) => localStorage.setItem(key, value);
 
 const rememberKey = () => localStorage.setItem('key', window.btoa(data.key));
 
+const chartOptions = async (content) => {
+  let regex = new RegExp(/(```(.|\n)*```)/, "g");
+    let reply = content.match(regex);
+    const chartData = reply[0].split('\n').filter((item) => !!item);
+    let result = [];
+    for (let i=0; i<chartData.length - 1; i++) {
+      if (i!==0) {
+        result += chartData[i]
+      }
+    }
+    data.chartOptions = JSON.parse(result);
+}
+
 const run = async () => {
+  if (data.userMessage === '') { return false; }
   data.loads = true;
   const client = createClient(data.key);
   try {
@@ -50,7 +64,9 @@ const run = async () => {
     const [choice] = choices;
     const { message } = choice;
     data.generatedMessages.push(new Message(ROLE_ASSISTANT, message.content));
-    console.log('content: ', message.content)
+    chartOptions(message.content);
+    console.log(message.content)
+    console.log(data.chartOptions)
     await new Promise((resolve) => setTimeout(resolve, data.delaySeconds * 100));
     data.loads = false;
   } catch (err) {
@@ -133,7 +149,7 @@ const run = async () => {
             Chat
           </div>
           <div class="my-4">
-            <TheResult :messages="generatedMessages" :chart-options="data.chartOptions" />
+            <TheResult :messages="generatedMessages" :chartOptions="data.chartOptions" />
           </div>
         </v-card-item>
         <v-card-item class="pl-8 pr-8 pb-2">
