@@ -53,7 +53,7 @@ const chartOptions = async (content) => {
       }
       data.chartOptions = JSON.parse(result);
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       data.error = err?.response?.data?.error?.message || err.message;
     }
 }
@@ -84,7 +84,7 @@ const run = async (auto) => {
     } else {
       chartOptions(message.content);
     }
-    console.log(message.content)
+    // console.log(message.content)
     // console.log(data.chartOptions)
 
     await new Promise((resolve) => setTimeout(resolve, data.delaySeconds * 100));

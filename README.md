@@ -16,7 +16,6 @@ const run = async () => {
     const [choice] = choices;
     const { message } = choice;
     data.generatedMessages.push(new Message(ROLE_ASSISTANT, message.content));
-    console.log('content: ', message.content)
     await new Promise((resolve) => setTimeout(resolve, data.delaySeconds * 100));
     data.loads = false;
   } catch (err) {
