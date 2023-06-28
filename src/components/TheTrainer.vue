@@ -175,7 +175,7 @@ const run = async (auto) => {
         </v-card-item>
         <v-card-item class="pl-8 pr-8 pb-2">
           <div class="loading" v-if="data.loads">
-            <div class="loader2" />
+            <div class="loader2"></div>
           </div>
           <div class="my-4">
             <div class="text-subtitle-2 mb-2">
