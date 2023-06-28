@@ -15,6 +15,9 @@ import {
 } from '../constants';
 import { Message } from '../models';
 import TheChart from '../components/TheChart.vue';
+import { useStore } from "vuex";
+
+const store = useStore();
 
 const data = reactive({
   error: '',
@@ -40,18 +43,26 @@ const rememberKey = () => localStorage.setItem('key', window.btoa(data.key));
 const chartOptions = async (content) => {
   let regex = new RegExp(/(```(.|\n)*```)/, "g");
     let reply = content.match(regex);
-    const chartData = reply[0].split('\n').filter((item) => !!item);
-    let result = [];
-    for (let i=0; i<chartData.length - 1; i++) {
-      if (i!==0) {
-        result += chartData[i]
+    try {
+      const chartData = reply[0].split('\n').filter((item) => !!item);
+      let result = [];
+      for (let i=0; i<chartData.length - 1; i++) {
+        if (i!==0) {
+          result += chartData[i]
+        }
       }
+      data.chartOptions = JSON.parse(result);
+    } catch (err) {
+      data.error = err?.response?.data?.error?.message || err.message;
     }
-    data.chartOptions = JSON.parse(result);
 }
 
-const run = async () => {
+const run = async (auto) => {
   if (data.userMessage === '') { return false; }
+  if (auto) { 
+    data.userMessage = "Fill in each blank value and return\n"
+     + "```json\n" + auto + "\n```"; 
+  }
   data.loads = true;
   const client = createClient(data.key);
   try {
@@ -64,9 +75,11 @@ const run = async () => {
     const [choice] = choices;
     const { message } = choice;
     data.generatedMessages.push(new Message(ROLE_ASSISTANT, message.content));
+
     chartOptions(message.content);
-    console.log(message.content)
-    console.log(data.chartOptions)
+    // console.log(message.content)
+    // console.log(data.chartOptions)
+
     await new Promise((resolve) => setTimeout(resolve, data.delaySeconds * 100));
     data.loads = false;
   } catch (err) {
@@ -159,7 +172,7 @@ const run = async () => {
           <div class="my-4">
             <div class="text-subtitle-2 mb-2">
               <b>User Messages</b> or Here's some samples...
-              <v-btn color="primary" size="x-small" rounded="xl" class="mr-2">
+              <v-btn color="primary" size="x-small" rounded="xl" class="mr-2" @click="run(store.state.chartStore.column)">
                 Column
               </v-btn>
               <v-btn color="secondary" size="x-small" rounded="xl" class="mr-2">
@@ -194,7 +207,7 @@ const run = async () => {
             block
             color="indigo"
             variant="outlined"
-            @click="run"
+            @click="run()"
           >
             Send Message
           </v-btn>
