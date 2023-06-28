@@ -137,6 +137,7 @@ const run = async (auto) => {
                 hide-details
                 type="password"
                 variant="outlined"
+                placeholder="Paste your GPT-api key"
                 @input="rememberKey"
               />
             </div>
