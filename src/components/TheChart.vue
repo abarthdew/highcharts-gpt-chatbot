@@ -112,7 +112,7 @@ export default {
     const onRender = () => {
       // nothing
     };
-    const test = "```JSON\n" + `{
+    const test = "```javascript\n" + `{
   "chartOptions": {
     "chart": {
       "type": "line"
@@ -136,8 +136,6 @@ export default {
 }` + "\n```"
     let regex = new RegExp(/(```(.|\n)*```)/, "g");
     let word = test.match(regex);
-    // let result2 = result[0].toString();
-    // console.log(result2.slice(0, -1))
     const userMessages = word[0].split('\n').filter((item) => !!item);
     let result = [];
     for (let i=0; i<userMessages.length - 1; i++) {

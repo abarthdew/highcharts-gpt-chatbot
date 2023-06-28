@@ -7,22 +7,18 @@ const run = async () => {
   data.loads = true;
   const client = createClient(data.key);
   try {
-    const userMessages = data.userMessage.split('\n').filter((userMessage) => !!userMessage);
-    for await (const userMessage of userMessages) {
-      data.generatedMessages.push(new Message(ROLE_USER, userMessage));
-      data.userMessage = '';
-      const result = await createCompletion(client)({
-        messages: generatedMessages.value,
-      });
-      const { choices } = result.data;
-      const [choice] = choices;
-      const { message } = choice;
-      data.generatedMessages.push(new Message(ROLE_ASSISTANT, message.content));
-      console.log(message.content)
-      document.getElementById('input-9').focus();
-      await new Promise((resolve) => setTimeout(resolve, data.delaySeconds * 1000));
-      data.loads = false;
-    }
+    data.generatedMessages.push(new Message(ROLE_USER, data.userMessage));
+    data.userMessage = '';
+    const result = await createCompletion(client)({
+      messages: generatedMessages.value,
+    });
+    const { choices } = result.data;
+    const [choice] = choices;
+    const { message } = choice;
+    data.generatedMessages.push(new Message(ROLE_ASSISTANT, message.content));
+    console.log('content: ', message.content)
+    await new Promise((resolve) => setTimeout(resolve, data.delaySeconds * 100));
+    data.loads = false;
   } catch (err) {
     data.error = err?.response?.data?.error?.message || err.message;
     data.loads = false;
@@ -77,3 +73,5 @@ $ npm run build # making dist/ folder in Vue project -> git push
 , [8](https://techbukket.com/blog/chatgpt-api-javascript)
 , [9](https://passwd.tistory.com/entry/Python-OpenAI-API-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
 , [10](https://passwd.tistory.com/entry/Python-OpenAI-API-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
+- regex
+> [refer](https://dmstjq92.medium.com/%EC%A0%95%EA%B7%9C%EC%8B%9D-%EC%A4%84%EB%B0%94%EA%BF%88-%ED%8F%AC%ED%95%A8-%EB%AA%A8%EB%93%A0-%EB%AC%B8%EC%9E%90-%EC%9D%BC%EC%B9%98-js%EC%86%8D%EC%84%B1%EA%B2%80%EC%83%89-%ED%85%8C%ED%81%AC%EB%8B%89-f70c1432a33f)

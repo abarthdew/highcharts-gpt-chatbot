@@ -12,9 +12,16 @@ import { RouterLink } from 'vue-router';
     <span class="mx-4">
       <RouterLink :to="{ name: 'home' }" active-class="font-weight-medium text-deep-purple-darken-3">
         <v-icon size="x-large">
-          mdi-home
+          mdi-home-circle
         </v-icon>
       </RouterLink>
+    </span>
+    <span class="mx-4 ml-1">
+      <a href="https://github.com/abarthdew/highcharts-gpt-chatbot" target="_blank" rel="noopener noreferrer">
+        <v-icon size="x-large">
+          mdi-database
+        </v-icon>
+      </a>
     </span>
     <span class="mx-4 ml-1">
       <a href="https://github.com/abarthdew/highcharts-gpt-chatbot" target="_blank" rel="noopener noreferrer">
