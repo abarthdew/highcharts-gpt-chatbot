@@ -1,7 +1,7 @@
 # hightcharts-gpt-chatbot
 
-## how to make it
-- src/services/openai.js 를 통해 통신, 리스트 출력
+## how to service
+- Communication via src/services/openai.js, list output
 ```javascript
 const run = async () => {
   data.loads = true;
