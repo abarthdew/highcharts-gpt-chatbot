@@ -183,7 +183,7 @@ const run = async (auto) => {
               <v-btn color="primary" size="x-small" rounded="xl" class="mr-2" @click="run(store.state.chartStore.column)">
                 Column
               </v-btn>
-              <v-btn color="secondary" size="x-small" rounded="xl" class="mr-2" @click="run(store.state.chartStore.stack)">
+              <v-btn color="red-accent-3" size="x-small" rounded="xl" class="mr-2" @click="run(store.state.chartStore.stack)">
                 Stack
               </v-btn>
               <v-btn color="info" size="x-small" rounded="xl" class="mr-2" @click="run(store.state.chartStore.fullStack)">
