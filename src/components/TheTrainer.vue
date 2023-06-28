@@ -53,16 +53,19 @@ const chartOptions = async (content) => {
       }
       data.chartOptions = JSON.parse(result);
     } catch (err) {
+      console.log(err)
       data.error = err?.response?.data?.error?.message || err.message;
     }
 }
 
 const run = async (auto) => {
-  if (data.userMessage === '') { return false; }
+  data.chartOptions = {}; // reset
+
   if (auto) { 
-    data.userMessage = "Fill in each blank value and return\n"
-     + "```json\n" + auto + "\n```"; 
+    data.userMessage = "Example json code for column chart below. Explain each properties. \n"
+     + "```json\n" + JSON.stringify(auto) + "\n```"; 
   }
+
   data.loads = true;
   const client = createClient(data.key);
   try {
@@ -76,8 +79,12 @@ const run = async (auto) => {
     const { message } = choice;
     data.generatedMessages.push(new Message(ROLE_ASSISTANT, message.content));
 
-    chartOptions(message.content);
-    // console.log(message.content)
+    if (auto) {
+      data.chartOptions = auto;
+    } else {
+      chartOptions(message.content);
+    }
+    console.log(message.content)
     // console.log(data.chartOptions)
 
     await new Promise((resolve) => setTimeout(resolve, data.delaySeconds * 100));
@@ -176,16 +183,16 @@ const run = async (auto) => {
               <v-btn color="primary" size="x-small" rounded="xl" class="mr-2" @click="run(store.state.chartStore.column)">
                 Column
               </v-btn>
-              <v-btn color="secondary" size="x-small" rounded="xl" class="mr-2">
+              <v-btn color="secondary" size="x-small" rounded="xl" class="mr-2" @click="run(store.state.chartStore.stack)">
                 Stack
               </v-btn>
-              <v-btn color="info" size="x-small" rounded="xl" class="mr-2">
+              <v-btn color="info" size="x-small" rounded="xl" class="mr-2" @click="run(store.state.chartStore.fullStack)">
                 Full Stack
               </v-btn>
-              <v-btn color="success" size="x-small" rounded="xl" class="mr-2">
+              <v-btn color="success" size="x-small" rounded="xl" class="mr-2" @click="run(store.state.chartStore.overlap)">
                 Overlap
               </v-btn>
-              <v-btn color="warning" size="x-small" rounded="xl" class="mr-2">
+              <v-btn color="warning" size="x-small" rounded="xl" class="mr-2" @click="run(store.state.chartStore.treemap)">
                 Treemap
               </v-btn>
             </div>

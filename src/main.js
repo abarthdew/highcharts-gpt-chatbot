@@ -13,6 +13,11 @@ import '@mdi/font/css/materialdesignicons.css';
 // variable declaration
 const app = createApp(App);
 
+// Initialize the TreeMap module
+import Highcharts from 'highcharts';
+import TreeMap from 'highcharts/modules/treemap';
+TreeMap(Highcharts);
+
 // highchart & markdown global use
 import VueHighcharts from 'vue3-highcharts';
 import VueMarkdownIt from 'vue3-markdown-it';
