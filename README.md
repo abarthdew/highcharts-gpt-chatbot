@@ -92,3 +92,12 @@ $ npm run build # making dist/ folder in Vue project -> git push
 
 - regex
 > refer [1](https://dmstjq92.medium.com/%EC%A0%95%EA%B7%9C%EC%8B%9D-%EC%A4%84%EB%B0%94%EA%BF%88-%ED%8F%AC%ED%95%A8-%EB%AA%A8%EB%93%A0-%EB%AC%B8%EC%9E%90-%EC%9D%BC%EC%B9%98-js%EC%86%8D%EC%84%B1%EA%B2%80%EC%83%89-%ED%85%8C%ED%81%AC%EB%8B%89-f70c1432a33f)
+
+- git status
+> refer [1](https://www.githubstatus.com/)
+, [2](https://github.com/orgs/community/discussions/59600)
+
+- git actions & deploy
+> refer [1](https://github.com/orgs/community/discussions/23885)
+, [2](https://docs.github.com/en/actions/managing-workflow-runs/reviewing-deployments)
+, [3](https://github.com/marketplace/actions/manual-workflow-approval)
