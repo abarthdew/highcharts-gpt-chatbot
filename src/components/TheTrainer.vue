@@ -54,7 +54,7 @@ const chartOptions = async (content) => {
       }
       data.chartOptions = JSON.parse(result);
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       data.error = err?.response?.data?.error?.message || err.message;
     }
 }
@@ -73,7 +73,7 @@ const run = async (auto) => {
     data.generatedMessages.push(new Message(ROLE_USER, data.userMessage));
     data.userMessage = '';
 
-    console.log('generatedMessages.value\n', generatedMessages.value)
+    // console.log('generatedMessages.value\n', generatedMessages.value)
 
     const result = await createCompletion(client)({
       messages: generatedMessages.value,
@@ -100,7 +100,7 @@ const run = async (auto) => {
   } catch (err) {
     data.error = err?.response?.data?.error?.message || err.message;
     data.loads = false;
-    console.log(err)
+    // console.log(err)
   }
 };
 </script>
