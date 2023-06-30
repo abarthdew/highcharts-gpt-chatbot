@@ -71,6 +71,7 @@ const run = async (auto) => {
   const client = createClient(data.key);
   try {
     data.generatedMessages.push(new Message(ROLE_USER, data.userMessage));
+    data.resultMessages.push(new Message(ROLE_USER, data.userMessage))
     data.userMessage = '';
 
     // console.log('generatedMessages.value\n', generatedMessages.value)
