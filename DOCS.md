@@ -6,7 +6,7 @@ tags: [AI, Gpt]
 math: true
 mermaid: true
 image:
-  path: [assets/img/2023/1.jpg](https://github.com/abarthdew/highcharts-gpt-chatbot/blob/main/src/assets/img/1.jpg)
+  path: assets/img/2023/1.jpg
   width: 800
   height: 500
 ---
