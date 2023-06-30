@@ -26,6 +26,7 @@ const data = reactive({
   userMessage: localStorage.getItem('userMessage') || DEFAULT_USER_MESSAGE,
   delaySeconds: Number(localStorage.getItem('delaySeconds')) || DEFAULT_DELAY_SECONDS,
   generatedMessages: [],
+  resultMessages: [],
   loads: false,
   chartOptions: {},
 });
@@ -53,7 +54,7 @@ const chartOptions = async (content) => {
       }
       data.chartOptions = JSON.parse(result);
     } catch (err) {
-      // console.log(err)
+      console.log(err)
       data.error = err?.response?.data?.error?.message || err.message;
     }
 }
@@ -71,19 +72,26 @@ const run = async (auto) => {
   try {
     data.generatedMessages.push(new Message(ROLE_USER, data.userMessage));
     data.userMessage = '';
+
+    console.log('generatedMessages.value\n', generatedMessages.value)
+
     const result = await createCompletion(client)({
       messages: generatedMessages.value,
     });
+
     const { choices } = result.data;
     const [choice] = choices;
     const { message } = choice;
-    data.generatedMessages.push(new Message(ROLE_ASSISTANT, message.content));
-
+    
     if (auto) {
       data.chartOptions = auto;
     } else {
       chartOptions(message.content);
     }
+
+    data.generatedMessages.push(new Message(ROLE_ASSISTANT, message.content));
+    data.resultMessages.push(new Message(ROLE_ASSISTANT, message.content, data.chartOptions))
+
     // console.log(message.content)
     // console.log(data.chartOptions)
 
@@ -92,6 +100,7 @@ const run = async (auto) => {
   } catch (err) {
     data.error = err?.response?.data?.error?.message || err.message;
     data.loads = false;
+    console.log(err)
   }
 };
 </script>
@@ -170,7 +179,7 @@ const run = async (auto) => {
             Chat
           </div>
           <div class="my-4">
-            <TheResult :messages="generatedMessages" :chartOptions="data.chartOptions" />
+            <TheResult :messages="data.resultMessages" />
           </div>
         </v-card-item>
         <v-card-item class="pl-8 pr-8 pb-2">
