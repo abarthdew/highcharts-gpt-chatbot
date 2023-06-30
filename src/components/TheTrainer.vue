@@ -223,6 +223,7 @@ const run = async (auto) => {
         </v-card-item>
         <v-card-actions class="justify-end pa-8 pt-0">
           <v-btn
+            :disabled="data.userMessage === ''"
             block
             color="indigo"
             variant="outlined"
