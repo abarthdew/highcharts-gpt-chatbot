@@ -1,20 +1,7 @@
----
-title: GPT prompt for Highcharts
-date: 2023-06-29
-categories: [AI, Gpt]
-tags: [AI, Gpt, pages]
-math: true
-mermaid: true
-image:
-  path: https://raw.githubusercontent.com/abarthdew/highcharts-gpt-chatbot/main/src/assets/img/1.jpg
-  width: 800
-  height: 500
----
+> [GPT prompt for Highcharts](https://abarthdew.github.io/highcharts-gpt-chatbot/#/) 접속하기 👈 go!
 
-> [GPT prompt for Highcharts](https://abarthdew.github.io/highcharts-gpt-chatbot/#/){:target="_blank"} 접속하기 👈 go!
-{: .prompt-tip }
-> [Maker's GitHub](https://github.com/abarthdew/highcharts-gpt-chatbot){:target="_blank"} 제작자의 GitHub 🖐 Welcome🙃
-{: .prompt-info }
+> [Maker's GitHub](https://github.com/abarthdew/highcharts-gpt-chatbot) 제작자의 GitHub 🖐 Welcome🙃
+
 
 # All Lists - 목차
 [Before get Start - 서문](#before-get-start---서문)   
@@ -54,7 +41,7 @@ Gpt를 활용하는 데 있어서, 일반 사용자와 개발자는 다를 수�
 이 항목은 위에서 나온 두 가지 조건을 모두 충족한다. 복잡하고 방대한 문서량의 통계 그래프를 UI 프레임워크화 할 수 있기 때문이다.   
 통계 메뉴는 어떤 웹사이트든 쉽게 찾아볼 수 있는데, 매번 문서를 보며 구현하기에는 다소 시간이 든다. 이 과정에 AI를 도입해 화면 구현에 소요되는 시간을 획기적으로 줄이고, 서버 단의 코드나 SQL 쿼리를 짜는 데 시간을 더 할애해 보다 성능이 높은 수준의 코드를 짤 수 있다!
 ### 4. Highcharts 문서의 가독성과 양의 방대함
-- [Highcharts API 문서 일부](https://api.highcharts.com/highcharts/){:target="_blank"}
+- [Highcharts API 문서 일부](https://api.highcharts.com/highcharts/)
 ```javascript
 accessibility:{...}
 annotations:[{...}]
@@ -97,8 +84,8 @@ zAxis:[{...}]
 ### 1. 어플리케이션 실행
 - 배포 주소   
 
-> [GPT prompt for Highcharts](https://abarthdew.github.io/highcharts-gpt-chatbot/#/){:target="_blank"} 접속하기 👈 go!
-{: .prompt-tip }
+> [GPT prompt for Highcharts](https://abarthdew.github.io/highcharts-gpt-chatbot/#/) 접속하기 👈 go!
+
 
 - 로컬에서 실행하는 경우
 ```bash
@@ -107,7 +94,7 @@ $ npm run dev
 ```
 
 ### 2. api key 입력하기
-모든 기능을 온전히 사용하기 위해, [openai 홈페이지](https://platform.openai.com/){:target="_blank"} 에서 제공되는 개인 api key를 입력한다.
+모든 기능을 온전히 사용하기 위해, [openai 홈페이지](https://platform.openai.com/) 에서 제공되는 개인 api key를 입력한다.
 ![Untitled](https://raw.githubusercontent.com/abarthdew/highcharts-gpt-chatbot/main/src/assets/img/1(1).png)
 
 ### 3. Sample Chart 확인하기
@@ -119,7 +106,7 @@ $ npm run dev
 ![Untitled](https://raw.githubusercontent.com/abarthdew/highcharts-gpt-chatbot/main/src/assets/img/1(3).png)
 > 
 번역: Highcharts, Vue2 버전을 기준으로, 하나의 json 형식 markdown 코드 블록을 제시하고, chartOptions 라는 객체만 사용한다. 포맷은 다음과 같고, html 이나 import 코드는 넣지 말 것. 설명을 덧붙일 순 있지만 일반 문자만 가능하다.
-{: .prompt-info }
+
 > - 자유롭게 물어보기   
 Highcharts에 대해 질문하고 싶은 것을 입력할 수 있다.
 ![Untitled](https://raw.githubusercontent.com/abarthdew/highcharts-gpt-chatbot/main/src/assets/img/1(4).png)
@@ -141,7 +128,7 @@ system은 앞서 설명했듯 질문에 전제되는 규칙이나 형식 등을 
 > 
 질문: 간단한 Column Chart 코드를 써 줘.   
 답변: chart 데이터를 chartOptions 객체로 감싸 답변 + 간단한 설명 + 동적 차트 시각화
-{: .prompt-info }
+
 ![Untitled](https://raw.githubusercontent.com/abarthdew/highcharts-gpt-chatbot/main/src/assets/img/1(7).png)
 _json코드 리턴(중략)_
 ![Untitled](https://raw.githubusercontent.com/abarthdew/highcharts-gpt-chatbot/main/src/assets/img/1(8).png)
@@ -169,7 +156,7 @@ _TREEMAP 버튼을 클릭했을 때_
 
 > 구현은 `Vue3`, 코드 예시는 `Vue2`인 이유
 <br>: Vue2 버전으로 리턴되는 json 형식이 보다 정형화되어 있기 때문에, 이해가 쉬움.
-{: .prompt-danger }
+
 
 ### 2. 서비스
 - openai.js 내 코드로 통신 및 응답 리스트 전송
@@ -181,7 +168,7 @@ const createCompletion = (client) => ({
     messages,
 });
 ```
-{: file='Gpt api 호출 - 응답 코드'}
+Gpt api 호출 - 응답 코드
 
 - 응답 형식
 ```javascript
@@ -218,22 +205,22 @@ const chartOptions = async (content) => {
 ```
 
  > 만일 Gpt가 system 형식에 부합하지 않는 답을 도출할 시, 해당 답변의 그래프 시각화는 중단되고 에러 메세지가 출력된다.
-{: .prompt-warning }
+
 
 - 차트 컴포넌트
 ```javascript
 data.resultMessages.push(new Message(ROLE_ASSISTANT, message.content, data.chartOptions))
 ```
-{: file='답변 가공 후 data.resultMessage 배열에 push'}
+답변 가공 후 data.resultMessage 배열에 push
 
 
 # ETC - 배포/오류/버그
 ---
 ### 1. 배포 방식: Git Pages
 - deploy yml file
-[.github/workflows/gh-pages.yaml](https://github.com/abarthdew/highcharts-gpt-chatbot/blob/main/.github/workflows/gh-pages.yml){:target="_blank"}
+[.github/workflows/gh-pages.yaml](https://github.com/abarthdew/highcharts-gpt-chatbot/blob/main/.github/workflows/gh-pages.yml)
 > - 배포에 필요한 명령어들을 작성한 파일.
-> - [참고](https://codingapple.com/unit/vue-build-and-deploy-with-github-pages/){:target="_blank"}에 나오는 것처럼, `npm run build`를 호출해 압축 파일들을 /dist에 수동으로 저장할 필요 없음.
+> - [참고](https://codingapple.com/unit/vue-build-and-deploy-with-github-pages/)에 나오는 것처럼, `npm run build`를 호출해 압축 파일들을 /dist에 수동으로 저장할 필요 없음.
 > - gitHub deploy시, 자동으로 gh-pages 브랜치가 생성되고 배포할 결과물이 저장된다. 
 
 - [Settings] - choose deploy method
@@ -241,16 +228,16 @@ data.resultMessages.push(new Message(ROLE_ASSISTANT, message.content, data.chart
 > 1. git actions 사용, 2. git 브랜치로 배포(Deploy from a branch)
 > - 현재 프로젝트는 2. 방식 채택.
 > - 배포 결과물이 gh-pages에 저장되므로 배포 브랜치는 main이 아닌 gh-pages.   
-> - 하지만, gh-pages 브랜치를 먼저 만들어 줘야 하므로 gh-pages.yml 파일을 push -> 파일 내용에 의해 [Actions](https://github.com/abarthdew/highcharts-gpt-chatbot/actions/runs/5410468901){:target="_blank"} 탭에서 자동으로 deploy됨 -> gh-pages 브랜치 생성 및 배포 파일 자동 저장됨.
+> - 하지만, gh-pages 브랜치를 먼저 만들어 줘야 하므로 gh-pages.yml 파일을 push -> 파일 내용에 의해 [Actions](https://github.com/abarthdew/highcharts-gpt-chatbot/actions/runs/5410468901) 탭에서 자동으로 deploy됨 -> gh-pages 브랜치 생성 및 배포 파일 자동 저장됨.
 > ![image](https://github.com/abarthdew/highcharts-gpt-chatbot/assets/51596506/b6c78224-dfdf-416e-a999-22f5a3e304e2)
-> - 그 다음, [Settings - Actions](https://github.com/abarthdew/highcharts-gpt-chatbot/settings/pages){:target="_blank"} 탭에서 main으로 되어 있는 설정을 gh-pages로 바꿈.
+> - 그 다음, [Settings - Actions](https://github.com/abarthdew/highcharts-gpt-chatbot/settings/pages) 탭에서 main으로 되어 있는 설정을 gh-pages로 바꿈.
 > ![image](https://github.com/abarthdew/highcharts-gpt-chatbot/assets/51596506/bcfc726a-3fb2-407a-b34d-07553b94aa9f)
 
 - [Actions] - check build & deploy
-> - 위 [Settings]에서 gh-pages 브랜치 설정 후, [Actions](https://github.com/abarthdew/highcharts-gpt-chatbot/actions/runs/5410493027){:target="_blank"} 탭에서 다시 결과물이 배포됨.
+> - 위 [Settings]에서 gh-pages 브랜치 설정 후, [Actions](https://github.com/abarthdew/highcharts-gpt-chatbot/actions/runs/5410493027) 탭에서 다시 결과물이 배포됨.
 > - 그 외, 코드 수정 후 git push -> 배포 자동 실행 및 로그 확인 가능.
 > ![image](https://github.com/abarthdew/highcharts-gpt-chatbot/assets/51596506/8fdeecab-eef1-4356-87f8-fef6e0970450)
-> - [reference](https://github.com/memochou1993/gpt-prompt-trainer/actions/runs/4621383101){:target="_blank"}
+> - [reference](https://github.com/memochou1993/gpt-prompt-trainer/actions/runs/4621383101)
 
 ### 2. 오류
 2-1. npm install 오류
@@ -270,7 +257,7 @@ $ npm i --save vue3-highcharts
 - solution
 > Excluding highcharts via optimizeDeps.exclude would clear the error, but that would defeat your ultimate goal of using highcharts in your project. You'll notice that after using that config, your project still is not able to import highcharts. The error is indicating that your project is missing that dependency.
 > The solution would be to install highcharts:
-> [=> references](https://stackoverflow.com/questions/71790261/error-when-adding-highchartsjs-to-vue3-app){:target="_blank"}
+> [=> references](https://stackoverflow.com/questions/71790261/error-when-adding-highchartsjs-to-vue3-app)
 ```bash
 $ npm install -S highcharts
 ```
@@ -281,7 +268,7 @@ $ npm install -S highcharts
 ```
 
 2-2. deploy 오류
-- [permission write&read](https://github.com/ad-m/github-push-action/issues/96){:target="_blank"}
+- [permission write&read](https://github.com/ad-m/github-push-action/issues/96)
 ```bash
 remote: Permission to NRCHKB/node-red-contrib-homekit-docker.git denied to github-actions[bot].
 fatal: unable to access 'https://github.com/NRCHKB/node-red-contrib-homekit-docker.git/': The requested URL returned error: 403
@@ -289,12 +276,12 @@ Error: Invalid exit code: 128
 ```
 > 1. deploy yml file에 명령어로 넣는 방식, 2. 프로젝트 settings 에서 설정하는 방식 두 가지가 있음.
 > 현재 프로젝트는 2. 방식 채택
-> [Settings -> Actions -> general](https://github.com/abarthdew/highcharts-gpt-chatbot/settings/actions){:target="_blank"}
+> [Settings -> Actions -> general](https://github.com/abarthdew/highcharts-gpt-chatbot/settings/actions)
 > ![image](https://github.com/abarthdew/highcharts-gpt-chatbot/assets/51596506/a7e9034e-4d37-4518-a666-2f0f5b6e160e)
 
-- [deploy is waiting for github-pages deployment approval](https://github.com/orgs/community/discussions/59600){:target="_blank"}
+- [deploy is waiting for github-pages deployment approval](https://github.com/orgs/community/discussions/59600)
 > ![image](https://github.com/abarthdew/highcharts-gpt-chatbot/assets/51596506/c06d3e94-7165-4368-a257-181898ad0768)  
-> deploy 상태가 waiting에서 안 넘어가길래 별짓을 다 해봤는데 알고 봤더니 gitHub 자체 업데이트 때문에 벌어진 일이었다. 앞으론 안 된다고 냅다 리포지토리 날리지 말고 [gitHub Status](https://www.githubstatus.com/){:target="_blank"} 상태도 확인하자...   
+> deploy 상태가 waiting에서 안 넘어가길래 별짓을 다 해봤는데 알고 봤더니 gitHub 자체 업데이트 때문에 벌어진 일이었다. 앞으론 안 된다고 냅다 리포지토리 날리지 말고 [gitHub Status](https://www.githubstatus.com/) 상태도 확인하자...   
 ![image](https://github.com/abarthdew/highcharts-gpt-chatbot/assets/51596506/051cacb9-fd93-428d-8738-8f1ad08352b0)
 
 
@@ -312,43 +299,43 @@ Error: Invalid exit code: 128
 # Reference - 참고
 ---
 - vue3 global settings | global variable | vuex | setup
-> refer [1](https://kyounghwan01.github.io/blog/Vue/vue3/global-state/#composition-api%E1%84%85%E1%85%A9-%E1%84%80%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A9%E1%84%87%E1%85%A5%E1%86%AF-%E1%84%87%E1%85%A7%E1%86%AB%E1%84%89%E1%85%AE-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5){:target="_blank"}
-, [2](https://kkh0977.tistory.com/1954){:target="_blank"}
+> refer [1](https://kyounghwan01.github.io/blog/Vue/vue3/global-state/#composition-api%E1%84%85%E1%85%A9-%E1%84%80%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A9%E1%84%87%E1%85%A5%E1%86%AF-%E1%84%87%E1%85%A7%E1%86%AB%E1%84%89%E1%85%AE-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5)
+, [2](https://kkh0977.tistory.com/1954)
 
 - global component/dynamic component
-> refer [1](https://velog.io/@byunghun-jake/Vue-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%A0%84%EC%97%AD%EB%93%B1%EB%A1%9D){:target="_blank"}
-, [2](https://empty-castle.tistory.com/3){:target="_blank"}
-, [3](https://mine-it-record.tistory.com/350){:target="_blank"}
+> refer [1](https://velog.io/@byunghun-jake/Vue-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%A0%84%EC%97%AD%EB%93%B1%EB%A1%9D)
+, [2](https://empty-castle.tistory.com/3)
+, [3](https://mine-it-record.tistory.com/350)
 
 - vue3 vuex
-> refer [1](https://kkh0977.tistory.com/1955){:target="_blank"}
-,[2](https://kyounghwan01.github.io/Vue/vue3/composition-api-vuex/#%EC%A0%84%EC%97%AD-action-mutation-%EC%8B%A4%ED%96%89){:target="_blank"}
-,[3](https://stackblitz.com/edit/vue3-vuex-mapgetters-namespaced-module?file=src%2FApp.vue){:target="_blank"}
-,[4](https://kyounghwan01.github.io/blog/Vue/vue3/global-state/#composition-api%E1%84%85%E1%85%A9-%E1%84%80%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A9%E1%84%87%E1%85%A5%E1%86%AF-%E1%84%87%E1%85%A7%E1%86%AB%E1%84%89%E1%85%AE-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5){:target="_blank"}
-,[5](https://vuex.vuejs.org/guide/modules.html#module-reuse){:target="_blank"}
-,[6](https://velog.io/@rachaen/Vuex4-modules-Vue3-store-%EB%AA%A8%EB%93%88%ED%99%94-%EC%8B%9C%ED%82%A4%EA%B8%B0){:target="_blank"}
-,[7](https://velog.io/@oneook/Vuex%EC%99%80-%ED%95%A8%EA%BB%98-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-%EC%A0%84%EC%97%AD-%EC%83%81%ED%83%9C-%EA%B4%80%EB%A6%AC){:target="_blank"}
+> refer [1](https://kkh0977.tistory.com/1955)
+,[2](https://kyounghwan01.github.io/Vue/vue3/composition-api-vuex/#%EC%A0%84%EC%97%AD-action-mutation-%EC%8B%A4%ED%96%89)
+,[3](https://stackblitz.com/edit/vue3-vuex-mapgetters-namespaced-module?file=src%2FApp.vue)
+,[4](https://kyounghwan01.github.io/blog/Vue/vue3/global-state/#composition-api%E1%84%85%E1%85%A9-%E1%84%80%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A9%E1%84%87%E1%85%A5%E1%86%AF-%E1%84%87%E1%85%A7%E1%86%AB%E1%84%89%E1%85%AE-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5)
+,[5](https://vuex.vuejs.org/guide/modules.html#module-reuse)
+,[6](https://velog.io/@rachaen/Vuex4-modules-Vue3-store-%EB%AA%A8%EB%93%88%ED%99%94-%EC%8B%9C%ED%82%A4%EA%B8%B0)
+,[7](https://velog.io/@oneook/Vuex%EC%99%80-%ED%95%A8%EA%BB%98-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-%EC%A0%84%EC%97%AD-%EC%83%81%ED%83%9C-%EA%B4%80%EB%A6%AC)
 
 - gpt
-> refer [1](https://www.visionboy.me/815){:target="_blank"}
-, [2](https://velog.io/@g_c0916/%ED%86%A0%EC%9D%B4-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-chat-GPT-API){:target="_blank"}
-, [3](https://re-hwi.tistory.com/121){:target="_blank"}
-, [4](https://velog.io/@bk87/GPT%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-QnA-%EC%B1%97%EB%B4%87-%EB%A7%8C%EB%93%A4%EA%B8%B0){:target="_blank"}
-, [5](https://welcometodannas.tistory.com/69){:target="_blank"}
-, [6](https://donny00.tistory.com/33){:target="_blank"}
-, [7](https://github.com/tmdgusya/study-english-with-gpt){:target="_blank"}
-, [8](https://techbukket.com/blog/chatgpt-api-javascript){:target="_blank"}
-, [9](https://passwd.tistory.com/entry/Python-OpenAI-API-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0){:target="_blank"}
-, [10](https://passwd.tistory.com/entry/Python-OpenAI-API-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0){:target="_blank"}
+> refer [1](https://www.visionboy.me/815)
+, [2](https://velog.io/@g_c0916/%ED%86%A0%EC%9D%B4-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-chat-GPT-API)
+, [3](https://re-hwi.tistory.com/121)
+, [4](https://velog.io/@bk87/GPT%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-QnA-%EC%B1%97%EB%B4%87-%EB%A7%8C%EB%93%A4%EA%B8%B0)
+, [5](https://welcometodannas.tistory.com/69)
+, [6](https://donny00.tistory.com/33)
+, [7](https://github.com/tmdgusya/study-english-with-gpt)
+, [8](https://techbukket.com/blog/chatgpt-api-javascript)
+, [9](https://passwd.tistory.com/entry/Python-OpenAI-API-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
+, [10](https://passwd.tistory.com/entry/Python-OpenAI-API-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
 
 - regex
-> refer [1](https://dmstjq92.medium.com/%EC%A0%95%EA%B7%9C%EC%8B%9D-%EC%A4%84%EB%B0%94%EA%BF%88-%ED%8F%AC%ED%95%A8-%EB%AA%A8%EB%93%A0-%EB%AC%B8%EC%9E%90-%EC%9D%BC%EC%B9%98-js%EC%86%8D%EC%84%B1%EA%B2%80%EC%83%89-%ED%85%8C%ED%81%AC%EB%8B%89-f70c1432a33f){:target="_blank"}
+> refer [1](https://dmstjq92.medium.com/%EC%A0%95%EA%B7%9C%EC%8B%9D-%EC%A4%84%EB%B0%94%EA%BF%88-%ED%8F%AC%ED%95%A8-%EB%AA%A8%EB%93%A0-%EB%AC%B8%EC%9E%90-%EC%9D%BC%EC%B9%98-js%EC%86%8D%EC%84%B1%EA%B2%80%EC%83%89-%ED%85%8C%ED%81%AC%EB%8B%89-f70c1432a33f)
 
 - git status
-> refer [1](https://www.githubstatus.com/){:target="_blank"}
-, [2](https://github.com/orgs/community/discussions/59600){:target="_blank"}
+> refer [1](https://www.githubstatus.com/)
+, [2](https://github.com/orgs/community/discussions/59600)
 
 - git actions & deploy
-> refer [1](https://github.com/orgs/community/discussions/23885){:target="_blank"}
-, [2](https://docs.github.com/en/actions/managing-workflow-runs/reviewing-deployments){:target="_blank"}
-, [3](https://github.com/marketplace/actions/manual-workflow-approval){:target="_blank"}
+> refer [1](https://github.com/orgs/community/discussions/23885)
+, [2](https://docs.github.com/en/actions/managing-workflow-runs/reviewing-deployments)
+, [3](https://github.com/marketplace/actions/manual-workflow-approval)
