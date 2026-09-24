@@ -31,8 +31,6 @@
 [ - 3. 버그/개선 목록](#3-버그개선-목록)   
 [Reference - 참고](#reference---참고)   
 
-![Highcharts GPT chatbot](https://raw.githubusercontent.com/abarthdew/highcharts-gpt-chatbot/main/src/assets/img/1.jpg)
-
 # Before get Start - 서문
 ---
 ### 1. 개발자의 Gpt 활용 방식
